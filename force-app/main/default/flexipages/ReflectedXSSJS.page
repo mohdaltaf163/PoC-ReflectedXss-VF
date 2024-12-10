@@ -1,0 +1,23 @@
+<apex:page controller="ReflectedXSSJSController" showHeader="true" sidebar="false">
+    <h1>Reflected XSS in JavaScript Context Demo</h1>
+    <p>This demo reflects user input from the URL directly into a JavaScript context.</p>
+
+    <!-- Vulnerable Script -->
+    <script>
+        // Dynamically injecting user input into JavaScript
+        var userInput = "{!userInput}";
+        console.log("User input: " + userInput);
+
+        // Unsafe: Rendering directly in DOM
+        document.write("<h2>User Input: " + userInput + "</h2>");
+    </script>
+
+    <!-- Safe Alternative -->
+ <!--   <h2>Sanitized Output:</h2>   -->
+<!--    <script>  -->
+  <!--      // Safely encoding user input  -->
+  <!--      var safeUserInput = "{!JSENCODE(userInput)}";  -->
+ <!--       console.log("Sanitized User input: " + safeUserInput);  -->
+ <!--       document.write("<h2>Safe User Input: " + safeUserInput + "</h2>");  -->
+ <!--   </script>  -->
+</apex:page>

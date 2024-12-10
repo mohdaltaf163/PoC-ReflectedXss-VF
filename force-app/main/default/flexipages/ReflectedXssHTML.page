@@ -1,0 +1,15 @@
+<apex:page controller="ReflectedXSSHTMLController" showHeader="true" sidebar="false">
+    <h1>Reflected XSS Vulnerability Demo</h1>
+
+    <!-- Display user input directly -->
+    <h2>User Input:</h2>
+    <div>
+        <apex:outputText value="{!userInput}" escape="false"/>
+    </div>
+
+    <!-- Safe alternative for comparison -->
+   <!-- <h2>Sanitized Output (Safe):</h2> -->
+  <!--  <div> -->
+  <!--      <apex:outputText value="{!userInput}" escape="true"/> -->
+  <!--  </div> -->
+</apex:page>

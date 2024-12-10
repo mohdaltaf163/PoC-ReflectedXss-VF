@@ -1,0 +1,18 @@
+<apex:page controller="ReflectedXSSAttributeController" showHeader="true" sidebar="false">
+    <h1>Reflected XSS in Attribute Context Demo</h1>
+    <p>This demo reflects user input from the URL directly into an HTML attribute.</p>
+
+    <!-- Vulnerable Example -->
+    <div>
+        <h2>Vulnerable Attribute Injection:</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS45WcrDp_-W9m1W6XqtkzbrMIb0t51lF2zBA&s" alt="{!userInput}" title="{!userInput}" />
+        <button onclick="{!userInput}">Click Me</button>
+    </div>
+
+    <!-- Safe Example -->
+ <!--   <div>   -->
+     <!--   <h2>Sanitized Attribute Injection (Safe):</h2>  -->
+   <!--     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS45WcrDp_-W9m1W6XqtkzbrMIb0t51lF2zBA&s" alt="{!HTMLENCODE(userInput)}" title="{!HTMLENCODE(userInput)}" />  -->
+   <!--     <button onclick="{!JSENCODE(userInput)}">Click Me Safely</button>  -->
+ <!--   </div>  -->
+</apex:page>

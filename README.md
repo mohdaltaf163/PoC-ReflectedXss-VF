@@ -32,17 +32,21 @@ If the input contains malicious code (e.g., <script> tags), the browser executes
 - Example URL: https://[your-salesforce-instance]/apex/ReflectedXssDemo
   
 ## Exploitation Example
-Payload: <script>alert(document.cookie)</script>
+HTML Context Payload: <script>alert(document.cookie)</script>
+  <img width="1792" alt="RxssHTML" src="https://git.soma.salesforce.com/storage/user/31505/files/8991dedf-f2f5-48c1-994d-d6faedb0f233">
+
+Javascript Context Payload: </script><script>alert(%27XSS in JavaScript context!%27)</script>
+<img width="1792" alt="RxssJS" src="https://git.soma.salesforce.com/storage/user/31505/files/b55717e8-101a-4c33-9a83-57a6088c638f">
   
-![Rxss](https://github.com/user-attachments/assets/a4f5cb0f-3185-4eff-b804-dfabdfdec346)
+CSS Context Payload: </style><script>alert(%27XSS%20in%20CSS%20Context!%27)</script>
+<img width="1792" alt="RxssCSS" src="https://git.soma.salesforce.com/storage/user/31505/files/4e491fe4-8f50-4f43-88f2-4b7f09c63dcb">
+  
+Attribute/EventHandler Context Payload: 
+<img width="1792" alt="RxssEventHandler" src="https://git.soma.salesforce.com/storage/user/31505/files/79a71260-9bd5-44a5-9237-192ee726e182">
+
   
  ## Mitigation
- **Escape Output: **
- 
- Replace the vulnerable line:
- `<apex:outputText value="{!userInput}" escape="false"/>`
- with
-`<apex:outputText value="{!HTMLENCODE(userInput)}"/>`
+Mitigation code is commented in all vulnerable pages
 
 ## Notes
 This proof-of-concept demonstrates the importance of secure coding practices and highlights potential risks if developers explicitly disables Salesforce's default XSS protection. This is highly dangerous in real-world applications. Developers should always be cautious about how they handle and render user input.

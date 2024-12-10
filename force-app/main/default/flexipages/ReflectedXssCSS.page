@@ -1,0 +1,26 @@
+<apex:page controller="ReflectedXSSCSSController" showHeader="true" sidebar="false">
+    <h1>Reflected XSS in CSS Context Demo</h1>
+    <p>This demo reflects user input from the URL directly into a CSS property.</p>
+
+    <!-- Vulnerable Example -->
+    <div>
+        <h2>Vulnerable CSS Injection:</h2>
+        <style>
+            .custom-style {
+                color: {!userInput};
+            }
+        </style>
+        <div class="custom-style">This text is styled with user input.</div>
+    </div>
+
+    <!-- Safe Example -->
+  <!--  <div> -->
+ <!--       <h2>Sanitized CSS Injection (Safe):</h2>  -->
+   <!--     <style>  -->
+ <!--           .safe-style {  -->
+ <!--               color: {!HTMLENCODE(userInput)};  -->
+ <!--           }  -->
+  <!--      </style>  -->
+  <!--      <div class="safe-style">This text is styled with sanitized user input.</div>  -->
+  <!--  </div>  -->
+</apex:page>
