@@ -33,17 +33,16 @@ If the input contains malicious code (e.g., <script> tags), the browser executes
   
 ## Exploitation Example
 HTML Context Payload: <script>alert(document.cookie)</script>
-  <img width="1792" alt="RxssHTML" src="https://git.soma.salesforce.com/storage/user/31505/files/8991dedf-f2f5-48c1-994d-d6faedb0f233">
+<img width="1792" alt="RxssHTML" src="https://github.com/user-attachments/assets/d5f1750d-b652-46d4-bc41-9a60ca1e8c80">
 
 Javascript Context Payload: </script><script>alert(%27XSS in JavaScript context!%27)</script>
-<img width="1792" alt="RxssJS" src="https://git.soma.salesforce.com/storage/user/31505/files/b55717e8-101a-4c33-9a83-57a6088c638f">
-  
-CSS Context Payload: </style><script>alert(%27XSS%20in%20CSS%20Context!%27)</script>
-<img width="1792" alt="RxssCSS" src="https://git.soma.salesforce.com/storage/user/31505/files/4e491fe4-8f50-4f43-88f2-4b7f09c63dcb">
-  
-Attribute/EventHandler Context Payload: 
-<img width="1792" alt="RxssEventHandler" src="https://git.soma.salesforce.com/storage/user/31505/files/79a71260-9bd5-44a5-9237-192ee726e182">
+<img width="1792" alt="RxssJS" src="https://github.com/user-attachments/assets/e21f0bc6-1e23-448f-8e6c-aa972e210d85">
 
+CSS Context Payload: </style><script>alert(%27XSS%20in%20CSS%20Context!%27)</script>
+<img width="1792" alt="RxssCSS" src="https://github.com/user-attachments/assets/631173c5-dbe2-433e-b65e-db4679ffee1a">
+
+Attribute/EventHandler Context Payload: javascript:alert(%27XSS in Attribute Context!%27)
+<img width="1792" alt="RxssEventHandler" src="https://github.com/user-attachments/assets/e0ba11ba-2a66-4d2c-b5f2-1c50908a1f16">
   
  ## Mitigation
 Mitigation code is commented in all vulnerable pages
